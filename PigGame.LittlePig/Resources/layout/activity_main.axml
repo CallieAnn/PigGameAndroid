@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="50dp"
@@ -10,6 +11,7 @@
 		android:padding="10dp">
 		<TextView
 			android:text="Player 1"
+			android:textStyle="bold"
 			android:layout_width="120.0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
@@ -19,6 +21,7 @@
 		/>
 		<TextView
 			android:text="Player 2"
+			android:textStyle="bold"
 			android:layout_width="120.0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
@@ -31,48 +34,52 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="50dp"
-		android:orientation="horizontal">
+		android:orientation="horizontal"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp">
 		<EditText
 			android:text="Nothing"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/player_one"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:id="@+id/player_one"
 		/>
 		<EditText
 			android:text="Nothing"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/player_two"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:id="@+id/player_two"
 		/>
 	</LinearLayout>
-	 <LinearLayout
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="50dp"
 		android:orientation="horizontal"
 		android:padding="10dp">
 		<TextView
 			android:text="Score"
-            android:layout_width="120.0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-			android:layout_marginLeft="60.0dp" 
-			android:layout_marginTop="10.0dp" 
-            android:id="@+id/one_score_label"
+			android:textStyle="bold"
+			android:layout_width="120.0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_marginLeft="60.0dp"
+			android:layout_marginTop="10.0dp"
+			android:id="@+id/one_score_label"
 		/>
 		<TextView
 			android:text="Score"
-            android:layout_width="120.0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+			android:textStyle="bold"
+			android:layout_width="120.0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
 			android:layout_marginRight="20.0dp"
 			android:layout_marginLeft="75.0dp"
-			android:layout_marginTop="10.0dp" 
-            android:id="@+id/two_score_label"
+			android:layout_marginTop="10.0dp"
+			android:id="@+id/two_score_label"
 		/>
 	</LinearLayout>
-	 <LinearLayout
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="50dp"
 		android:orientation="horizontal">
@@ -95,30 +102,31 @@
 	</LinearLayout>
 	<TextView
 		android:text="______'s Turn"
+		android:textStyle="bold"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/turn_label"
-		android:layout_marginTop="10.0dp" 
 		android:layout_marginLeft="149.5dp" />
 	<ImageView
-		android:src="@android:drawable/ic_menu_gallery"
+		android:src="@drawable/Die1"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="10.0dp" 
+		android:layout_height="108.5dp"
+		android:padding="5dp"
 		android:id="@+id/image_button" />
 	<TextView
 		android:text="Points for this turn:"
+		android:textStyle="bold"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/points_label"
-		android:layout_marginTop="10.0dp" 
 		android:layout_marginLeft="131.5dp" />
 	<TextView
 		android:text="No Points"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/points"
-		android:layout_marginTop="10.0dp" 
+		android:layout_marginTop="10.0dp"
+		android:layout_marginBottom="10.0dp"
 		android:layout_marginLeft="161.5dp" />
 	<LinearLayout
 		android:layout_width="match_parent"
@@ -127,24 +135,26 @@
 		android:padding="10dp">
 		<Button
 			android:id="@+id/roll_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Roll Die"
-            android:layout_weight="1"
-            android:gravity="center"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:text="Roll Die"
+			android:layout_weight="1"
+			android:gravity="center"
 		/>
 		<Button
 			android:id="@+id/end_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="End Turn"
-            android:layout_weight="1"
-            android:gravity="center"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:text="End Turn"
+			android:layout_weight="1"
+			android:gravity="center"
 		/>
 	</LinearLayout>
 	<Button
 		android:text="New Game"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/new_game_button" />
+		android:id="@+id/new_game_button"
+		android:layout_marginLeft="10.0dp"
+		android:layout_marginRight="10.0dp" />
 </LinearLayout>
