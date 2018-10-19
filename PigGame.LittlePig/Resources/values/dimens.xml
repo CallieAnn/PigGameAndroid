@@ -2,4 +2,5 @@
 <resources>
   <!-- Default screen margins -->
   <dimen name="activity_margin">16dp</dimen>
+  <dimen name="child_margin">10dp</dimen>
 </resources>

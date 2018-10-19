@@ -12,6 +12,7 @@
 	<TextView
 		android:text="Player 1"
 		android:textStyle="bold"
+		android:textSize="20sp"
 		android:layout_width="120.0dp"
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
@@ -23,6 +24,7 @@
 	<TextView
 		android:text="Player 2"
 		android:textStyle="bold"
+		android:textSize="20sp"
 		android:layout_width="120.0dp"
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
@@ -41,6 +43,8 @@
 		android:layout_alignEnd="@id/player_one_label"
 		android:layout_alignLeft="@id/player_one_label"
 		android:layout_alignStart="@id/player_one_label"
+		android:maxLength="12"
+		
 	/>
 	<EditText
 		android:text="Nothing"
@@ -53,19 +57,24 @@
 		android:layout_alignEnd="@id/player_two_label"
 		android:layout_alignLeft="@id/player_two_label"
 		android:layout_alignStart="@id/player_two_label"
+		android:maxLength="12"
+		
 	/>
 	<TextView
 		android:text="Score"
 		android:textStyle="bold"
+		android:textSize="14sp"
 		android:layout_width="120.0dp"
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
 		android:layout_below="@id/player_one"
 		android:id="@+id/one_score_label"
+		android:layout_marginTop="@dimen/child_margin"
 	/>
 	<TextView
 		android:text="Score"
 		android:textStyle="bold"
+		android:textSize="14sp"
 		android:layout_width="120.0dp"
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
@@ -73,6 +82,7 @@
 		android:layout_below="@id/player_two"
 		android:layout_toRightOf="@id/one_score_label"
 		android:id="@+id/two_score_label"
+		android:layout_marginTop="@dimen/child_margin"
 	/>
 	<TextView
 		android:text="No Score Yet"
@@ -94,54 +104,58 @@
 	<TextView
 		android:text="______'s Turn"
 		android:textStyle="bold"
+		android:textSize="20sp"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/turn_label"
 		android:layout_below="@id/one_score" 
+		android:layout_marginTop="@dimen/child_margin"
 		   
 	/>
 	<TextView
 		android:text="Points for this turn:"
 		android:textStyle="bold"
+		android:textSize="14sp"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/points_label"
 		android:layout_below="@id/turn_label" 
+		android:layout_marginTop="@dimen/child_margin"
 	/>
 	<TextView
 		android:text="No Points"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/points"
-		android:layout_below="@id/points_label" 
+		android:layout_below="@id/points_label"
 	/>
 	<ImageView
 		android:src="@drawable/Die1"
 		android:layout_width="match_parent"
-		android:layout_height="108.5dp"
+		android:layout_height="167.0dp"
 		android:padding="5dp"
-		android:id="@+id/image_button" 
-			
+		android:id="@+id/image_button"
 		android:layout_alignParentTop="true"
 		android:layout_toRightOf="@id/player_two_label"
 	/>
 	<Button
 		android:id="@+id/roll_button"
-		android:layout_width="wrap_content"
+		android:layout_width="150dp"
 		android:layout_height="wrap_content"
 		android:text="Roll Die"
+		android:layout_weight="1"
 		android:layout_below="@id/image_button"
 		android:layout_alignLeft="@id/image_button"
-		android:layout_toLeftOf="@id/end_button"
+		
 		
 	/>
 	<Button
 		android:id="@+id/end_button"
-		android:layout_width="wrap_content"
+		android:layout_width="150dp"
 		android:layout_height="wrap_content"
+		android:layout_weight="1"
 		android:text="End Turn"
 		android:layout_below="@id/image_button"
-		
 		android:layout_alignParentRight="true"
 	/>
 	<Button

@@ -1722,6 +1722,9 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f07009b
 			public const int activity_margin = 2131165339;
 			
+			// aapt resource value: 0x7f07009c
+			public const int child_margin = 2131165340;
+			
 			// aapt resource value: 0x7f07008b
 			public const int compat_button_inset_horizontal_material = 2131165323;
 			
