@@ -1719,6 +1719,9 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f07000a
 			public const int abc_text_size_title_material_toolbar = 2131165194;
 			
+			// aapt resource value: 0x7f07009b
+			public const int activity_margin = 2131165339;
+			
 			// aapt resource value: 0x7f07008b
 			public const int compat_button_inset_horizontal_material = 2131165323;
 			
