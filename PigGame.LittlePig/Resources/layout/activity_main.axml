@@ -38,14 +38,14 @@
 		android:layout_marginLeft="10dp"
 		android:layout_marginRight="10dp">
 		<EditText
-			android:text="Nothing"
+			android:text="Enter Name"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
 			android:id="@+id/player_one"
 		/>
 		<EditText
-			android:text="Nothing"
+			android:text="Enter Name"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
@@ -112,7 +112,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="108.5dp"
 		android:padding="5dp"
-		android:id="@+id/image_button" />
+		android:id="@+id/image" />
 	<TextView
 		android:text="Points for this turn:"
 		android:textStyle="bold"

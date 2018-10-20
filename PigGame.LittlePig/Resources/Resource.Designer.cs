@@ -2528,8 +2528,8 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f080030
 			public const int end = 2131230768;
 			
-			// aapt resource value: 0x7f080098
-			public const int end_button = 2131230872;
+			// aapt resource value: 0x7f080097
+			public const int end_button = 2131230871;
 			
 			// aapt resource value: 0x7f0800ba
 			public const int end_padder = 2131230906;
@@ -2585,8 +2585,8 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f08005f
 			public const int image = 2131230815;
 			
-			// aapt resource value: 0x7f080094
-			public const int image_button = 2131230868;
+			// aapt resource value: 0x7f080099
+			public const int image_button = 2131230873;
 			
 			// aapt resource value: 0x7f0800b5
 			public const int info = 2131230901;
@@ -2639,8 +2639,8 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f08003b
 			public const int never = 2131230779;
 			
-			// aapt resource value: 0x7f080099
-			public const int new_game_button = 2131230873;
+			// aapt resource value: 0x7f080098
+			public const int new_game_button = 2131230872;
 			
 			// aapt resource value: 0x7f080022
 			public const int none = 2131230754;
@@ -2687,11 +2687,11 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f08008c
 			public const int player_two_label = 2131230860;
 			
-			// aapt resource value: 0x7f080096
-			public const int points = 2131230870;
-			
 			// aapt resource value: 0x7f080095
-			public const int points_label = 2131230869;
+			public const int points = 2131230869;
+			
+			// aapt resource value: 0x7f080094
+			public const int points_label = 2131230868;
 			
 			// aapt resource value: 0x7f080006
 			public const int progress_circular = 2131230726;
@@ -2711,8 +2711,8 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f0800b2
 			public const int right_side = 2131230898;
 			
-			// aapt resource value: 0x7f080097
-			public const int roll_button = 2131230871;
+			// aapt resource value: 0x7f080096
+			public const int roll_button = 2131230870;
 			
 			// aapt resource value: 0x7f08000c
 			public const int save_image_matrix = 2131230732;

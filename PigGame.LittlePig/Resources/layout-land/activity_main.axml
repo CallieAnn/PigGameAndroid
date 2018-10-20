@@ -33,7 +33,7 @@
 		android:layout_alignTop="@id/player_one_label"
 	/>
 	<EditText
-		android:text="Nothing"
+		android:text="Enter Name"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
@@ -47,7 +47,7 @@
 		
 	/>
 	<EditText
-		android:text="Nothing"
+		android:text="Enter Name"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
