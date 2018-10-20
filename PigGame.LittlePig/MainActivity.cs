@@ -30,6 +30,7 @@ namespace PigGame.LittlePig
         int roll;
         string dieName;
         ImageView die;
+        string winner;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -45,6 +46,9 @@ namespace PigGame.LittlePig
             pTwoScore = FindViewById<TextView>(Resource.Id.two_score);
             points = FindViewById<TextView>(Resource.Id.points);
             die = FindViewById<ImageView>(Resource.Id.image);
+            var rollButton = FindViewById<Button>(Resource.Id.roll_button);
+            var endButton = FindViewById<Button>(Resource.Id.end_button);
+            whoseTurn = FindViewById<TextView>(Resource.Id.turn_label);
 
             p1Score = game.Player1Score;
             p2Score = game.Player2Score;
@@ -69,32 +73,47 @@ namespace PigGame.LittlePig
                 game.Player2Name = p2Name;
             };
 
-            var rollButton = FindViewById<Button>(Resource.Id.roll_button);
+           
             rollButton.Click += delegate
             {
-                
-                whoseTurn = FindViewById<TextView>(Resource.Id.turn_label);
                 whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
 
                 roll = game.RollDie();
 
+                //set correct die image
                 dieName = "die" + roll;
                 int resID = Resources.GetIdentifier(dieName, "drawable", PackageName);
                 die.SetImageResource(resID);
+
+                //update points
+                turnPoints = game.TurnPoints;
+                points.Text = turnPoints.ToString();
+
+                //if roll a 1
+                bool rollOne = game.CheckForOne();
+                if (rollOne)
+                {
+                    rollButton.Enabled = false;
+                }
                 
 
-
-
+                //check winner
+                winner = game.CheckForWinner();
+                if(winner != "")
+                {
+                    rollButton.Enabled = false;
+                    endButton.Enabled = false;
+                    whoseTurn.Text = winner + "wins!"; 
+                }
             };
 
-            //var endButton = FindViewById<Button>(Resource.Id.end_button);
-            //endButton.Click += delegate
-            //{
-
-
-
-
-            //};
+            
+            endButton.Click += delegate
+            {
+                turn = game.ChangeTurn();
+                whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
+                rollButton.Enabled = true;
+            };
 
             //var newGameButton = FindViewById<Button>(Resource.Id.new_game_button);
             //newGameButton.Click += delegate

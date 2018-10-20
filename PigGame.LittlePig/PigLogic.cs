@@ -16,7 +16,7 @@ namespace PigGame.LittlePig
     {
         /*************** fields ********************/
 
-        private const int WINNING_SCORE = 100;
+        private const int WINNING_SCORE = 10;
         public const int BAD_NUMBER = 1;
 
         private Random rand = new Random();
@@ -79,6 +79,18 @@ namespace PigGame.LittlePig
             }
 
             return roll;
+        }
+
+        public Boolean CheckForOne()
+        {
+            if(TurnPoints == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         // Get player based on the assumption that player 1 always goes first
