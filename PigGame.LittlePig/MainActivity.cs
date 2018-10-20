@@ -58,9 +58,6 @@ namespace PigGame.LittlePig
             pTwoScore.Text = p2Score.ToString();
             points.Text = turnPoints.ToString();
 
-
-            
-
             player1.TextChanged += (sender,  e) =>
             {
                 p1Name = player1.Text;
@@ -95,24 +92,35 @@ namespace PigGame.LittlePig
                 {
                     rollButton.Enabled = false;
                 }
-                
+            };
 
+            
+            endButton.Click += delegate
+            {
                 //check winner
                 winner = game.CheckForWinner();
                 if(winner != "")
                 {
                     rollButton.Enabled = false;
                     endButton.Enabled = false;
-                    whoseTurn.Text = winner + "wins!"; 
+                    whoseTurn.Text = winner + " wins!"; 
                 }
-            };
 
-            
-            endButton.Click += delegate
-            {
-                turn = game.ChangeTurn();
-                whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
-                rollButton.Enabled = true;
+                else { 
+                    //change whose turn
+                    turn = game.ChangeTurn();
+                    p1Score = game.Player1Score;
+                    p2Score = game.Player2Score;
+                    pOneScore.Text = p1Score.ToString();
+                    pTwoScore.Text = p2Score.ToString();
+                    whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
+                    //update points
+                    turnPoints = game.TurnPoints;
+                    points.Text = turnPoints.ToString();
+                    rollButton.Enabled = true;
+                    endButton.Enabled = true;
+                }
+               
             };
 
             //var newGameButton = FindViewById<Button>(Resource.Id.new_game_button);
