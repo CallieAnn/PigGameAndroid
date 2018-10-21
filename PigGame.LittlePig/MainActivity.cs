@@ -95,28 +95,32 @@ namespace PigGame.LittlePig
             };
 
             
-            endButton.Click += delegate
+            endButton.Click += (sender, e) => 
             {
                 //check winner
-                winner = game.CheckForWinner();
-                if(winner != "")
+                turn = game.ChangeTurn();
+                if(turn == 1)
                 {
-                    rollButton.Enabled = false;
-                    endButton.Enabled = false;
-                    whoseTurn.Text = winner + " wins!"; 
+                    winner = game.CheckForWinner();
+                    if(winner != "")
+                    {
+                        rollButton.Enabled = false;
+                        endButton.Enabled = false;
+                        whoseTurn.Text = winner + " wins!"; 
+                    }
+                    else
+                    {
+                        UpdateScore();
+                        UpdateTurn();
+                        rollButton.Enabled = true;
+                        endButton.Enabled = true;
+                    }
                 }
+                
 
-                else { 
-                    //change whose turn
-                    turn = game.ChangeTurn();
-                    p1Score = game.Player1Score;
-                    p2Score = game.Player2Score;
-                    pOneScore.Text = p1Score.ToString();
-                    pTwoScore.Text = p2Score.ToString();
-                    whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
-                    //update points
-                    turnPoints = game.TurnPoints;
-                    points.Text = turnPoints.ToString();
+                else {
+                    UpdateScore();
+                    UpdateTurn();
                     rollButton.Enabled = true;
                     endButton.Enabled = true;
                 }
@@ -131,7 +135,21 @@ namespace PigGame.LittlePig
             //};
         }
 
-        
+        public void UpdateScore()
+        {
+            p1Score = game.Player1Score;
+            p2Score = game.Player2Score;
+            pOneScore.Text = p1Score.ToString();
+            pTwoScore.Text = p2Score.ToString();
+            
+        }  
+
+        public void UpdateTurn()
+        {
+            whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
+            turnPoints = game.TurnPoints;
+            points.Text = turnPoints.ToString();
+        }
 
         
 
