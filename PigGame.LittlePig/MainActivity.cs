@@ -3,9 +3,8 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
-
-
-
+using System.Xml.Serialization;
+using System.IO;
 
 namespace PigGame.LittlePig
 {
@@ -32,6 +31,13 @@ namespace PigGame.LittlePig
         ImageView die;
         string winner;
 
+        //Keys for ints saved in bundle
+        const string ONE_SCORE = "Player_One_Score";
+        const string TWO_SCORE = "Player_Two_Score";
+        const string TURN_POINTS = "Turn_Points";
+        const string TURN = "Turn";
+        const string IMAGE = "Die";
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -39,25 +45,45 @@ namespace PigGame.LittlePig
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
-            game = new PigLogic();
+            if(savedInstanceState != null)
+            {
+                //get the scores, points, turn, and image name from bundle
+                p1Score = savedInstanceState.GetInt(ONE_SCORE, 0);
+                p2Score = savedInstanceState.GetInt(TWO_SCORE, 0);
+                turnPoints = savedInstanceState.GetInt(TURN_POINTS, 0);
+                turn = savedInstanceState.GetInt(TURN, 0);
+                dieName = savedInstanceState.GetString(IMAGE, "die1");
+
+                game = new PigLogic(p1Score, p2Score, turnPoints, turn);
+                int resID = Resources.GetIdentifier(dieName, "drawable", PackageName);
+                die = FindViewById<ImageView>(Resource.Id.image);
+                die.SetImageResource(resID);
+            }
+
+            else
+            {
+                game = new PigLogic();
+                p1Score = game.Player1Score;
+                p2Score = game.Player2Score;
+                turnPoints = game.TurnPoints;
+                die = FindViewById<ImageView>(Resource.Id.image);
+            }
+           
             player1 = FindViewById<EditText>(Resource.Id.player_one);
             player2 = FindViewById<EditText>(Resource.Id.player_two);
             pOneScore = FindViewById<TextView>(Resource.Id.one_score);
             pTwoScore = FindViewById<TextView>(Resource.Id.two_score);
             points = FindViewById<TextView>(Resource.Id.points);
-            die = FindViewById<ImageView>(Resource.Id.image);
+            
             var rollButton = FindViewById<Button>(Resource.Id.roll_button);
             var endButton = FindViewById<Button>(Resource.Id.end_button);
             whoseTurn = FindViewById<TextView>(Resource.Id.turn_label);
-
-            p1Score = game.Player1Score;
-            p2Score = game.Player2Score;
-            turnPoints = game.TurnPoints;
 
             pOneScore.Text = p1Score.ToString();
             pTwoScore.Text = p2Score.ToString();
             points.Text = turnPoints.ToString();
 
+            //set the players' names whenever the EditTexts are changed
             player1.TextChanged += (sender,  e) =>
             {
                 p1Name = player1.Text;
@@ -73,6 +99,7 @@ namespace PigGame.LittlePig
            
             rollButton.Click += delegate
             {
+                turn = game.Turn;
                 whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
 
                 roll = game.RollDie();
@@ -127,12 +154,16 @@ namespace PigGame.LittlePig
                
             };
 
-            //var newGameButton = FindViewById<Button>(Resource.Id.new_game_button);
-            //newGameButton.Click += delegate
-            //{
-            //    game.ResetGame();
+            var newGameButton = FindViewById<Button>(Resource.Id.new_game_button);
+            newGameButton.Click += delegate
+            {
+                game.ResetGame();
+                UpdateScore();
+                UpdateTurn();
+                rollButton.Enabled = true;
+                endButton.Enabled = true;
 
-            //};
+            };
         }
 
         public void UpdateScore()
@@ -151,8 +182,16 @@ namespace PigGame.LittlePig
             points.Text = turnPoints.ToString();
         }
 
-        
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            outState.PutInt(ONE_SCORE, p1Score);
+            outState.PutInt(TWO_SCORE, p2Score);
+            outState.PutInt(TURN_POINTS, turnPoints);
+            outState.PutInt(TURN, turn);
+            outState.PutString(IMAGE, dieName);
 
 
+            base.OnSaveInstanceState(outState);
+        }
     }
 }

@@ -134,7 +134,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="167.0dp"
 		android:padding="5dp"
-		android:id="@+id/image_button"
+		android:id="@+id/image"
 		android:layout_alignParentTop="true"
 		android:layout_toRightOf="@id/player_two_label"
 	/>
@@ -144,8 +144,8 @@
 		android:layout_height="wrap_content"
 		android:text="Roll Die"
 		android:layout_weight="1"
-		android:layout_below="@id/image_button"
-		android:layout_alignLeft="@id/image_button"
+		android:layout_below="@id/image"
+		android:layout_alignLeft="@id/image"
 		
 		
 	/>
@@ -155,7 +155,7 @@
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
 		android:text="End Turn"
-		android:layout_below="@id/image_button"
+		android:layout_below="@id/image"
 		android:layout_alignParentRight="true"
 	/>
 	<Button
