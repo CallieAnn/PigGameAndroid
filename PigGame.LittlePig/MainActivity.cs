@@ -12,8 +12,6 @@ namespace PigGame.LittlePig
     public class MainActivity : AppCompatActivity
     {
         PigLogic game;
-        EditText p1;
-        EditText p2;
         EditText player1;
         string p1Name;
         EditText player2;
@@ -34,6 +32,8 @@ namespace PigGame.LittlePig
         //Keys for ints saved in bundle
         const string ONE_SCORE = "Player_One_Score";
         const string TWO_SCORE = "Player_Two_Score";
+        const string ONE = "Player_One_Name";
+        const string TWO = "Player_Two_Name";
         const string TURN_POINTS = "Turn_Points";
         const string TURN = "Turn";
         const string IMAGE = "Die";
@@ -50,11 +50,20 @@ namespace PigGame.LittlePig
                 //get the scores, points, turn, and image name from bundle
                 p1Score = savedInstanceState.GetInt(ONE_SCORE, 0);
                 p2Score = savedInstanceState.GetInt(TWO_SCORE, 0);
+                p1Name = savedInstanceState.GetString(ONE, "");
+                p2Name = savedInstanceState.GetString(TWO, "");
                 turnPoints = savedInstanceState.GetInt(TURN_POINTS, 0);
                 turn = savedInstanceState.GetInt(TURN, 0);
                 dieName = savedInstanceState.GetString(IMAGE, "die1");
 
+
                 game = new PigLogic(p1Score, p2Score, turnPoints, turn);
+
+                game.Player1Name = p1Name;
+                game.Player2Name = p2Name;
+                whoseTurn = FindViewById<TextView>(Resource.Id.turn_label);
+                whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
+
                 int resID = Resources.GetIdentifier(dieName, "drawable", PackageName);
                 die = FindViewById<ImageView>(Resource.Id.image);
                 die.SetImageResource(resID);
@@ -67,6 +76,7 @@ namespace PigGame.LittlePig
                 p2Score = game.Player2Score;
                 turnPoints = game.TurnPoints;
                 die = FindViewById<ImageView>(Resource.Id.image);
+                whoseTurn = FindViewById<TextView>(Resource.Id.turn_label);
             }
            
             player1 = FindViewById<EditText>(Resource.Id.player_one);
@@ -77,7 +87,7 @@ namespace PigGame.LittlePig
             
             var rollButton = FindViewById<Button>(Resource.Id.roll_button);
             var endButton = FindViewById<Button>(Resource.Id.end_button);
-            whoseTurn = FindViewById<TextView>(Resource.Id.turn_label);
+            
 
             pOneScore.Text = p1Score.ToString();
             pTwoScore.Text = p2Score.ToString();
@@ -133,6 +143,7 @@ namespace PigGame.LittlePig
                     {
                         rollButton.Enabled = false;
                         endButton.Enabled = false;
+                        UpdateScore();
                         whoseTurn.Text = winner + " wins!"; 
                     }
                     else
@@ -189,6 +200,8 @@ namespace PigGame.LittlePig
             outState.PutInt(TURN_POINTS, turnPoints);
             outState.PutInt(TURN, turn);
             outState.PutString(IMAGE, dieName);
+            outState.PutString(ONE, p1Name);
+            outState.PutString(TWO, p2Name);
 
 
             base.OnSaveInstanceState(outState);
