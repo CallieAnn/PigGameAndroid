@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:orientation="horizontal"
+		android:padding="10dp">
+		<TextView
+			android:text="Enter player names and press start."
+			android:textStyle="bold"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:id="@+id/start_textview"
+			android:layout_marginLeft="60.0dp"
+			android:layout_marginTop="10.0dp"
+		
+		
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="100dp"
+		android:orientation="horizontal"
+		android:padding="10dp"
+		android:layout_marginTop="63.5dp">
+		<TextView
+			android:text="Player 1"
+			android:textStyle="bold"
+			android:layout_width="120.0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:id="@+id/player_one_label"
+			android:layout_marginLeft="60.0dp"
+			android:layout_marginTop="10.0dp"
+		/>
+		<TextView
+			android:text="Player 2"
+			android:textStyle="bold"
+			android:layout_width="120.0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:id="@+id/player_two_label"
+			android:layout_marginRight="20.0dp"
+			android:layout_marginLeft="75.0dp"
+			android:layout_marginTop="10.0dp" 
+		/>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="100dp"
+		android:orientation="horizontal"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp">
+		<EditText
+			android:hint="Enter Name"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:id="@+id/player_one"
+		/>
+		<EditText
+			android:hint="Enter Name"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:id="@+id/player_two"
+		/>
+	</LinearLayout>
+	<Button
+		android:text="Start Game"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/startButton"
+		android:layout_marginTop="122.5dp" 
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+	/>
+</LinearLayout>
