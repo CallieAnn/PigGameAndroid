@@ -114,15 +114,7 @@
     <AndroidResource Include="Resources\drawable\Die6.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout-land\activity_main.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\values\dimens.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout-small\activity_main.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\MainFragment.axml">
@@ -141,6 +133,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout-small\SecondActivity.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout-large\MainActivity.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
