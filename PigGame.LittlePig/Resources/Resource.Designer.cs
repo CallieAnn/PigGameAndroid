@@ -2366,9 +2366,6 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f080037
 			public const int SYM = 2131230775;
 			
-			// aapt resource value: 0x7f0800b4
-			public const int SecondFragment = 2131230900;
-			
 			// aapt resource value: 0x7f0800a4
 			public const int action0 = 2131230884;
 			
@@ -2531,8 +2528,8 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f080030
 			public const int end = 2131230768;
 			
-			// aapt resource value: 0x7f0800bd
-			public const int end_button = 2131230909;
+			// aapt resource value: 0x7f0800bc
+			public const int end_button = 2131230908;
 			
 			// aapt resource value: 0x7f0800b3
 			public const int end_padder = 2131230899;
@@ -2618,14 +2615,14 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f080099
 			public const int mainFragment = 2131230873;
 			
-			// aapt resource value: 0x7f0800c1
-			public const int masked = 2131230913;
+			// aapt resource value: 0x7f0800c0
+			public const int masked = 2131230912;
 			
 			// aapt resource value: 0x7f0800a7
 			public const int media_actions = 2131230887;
 			
-			// aapt resource value: 0x7f0800bf
-			public const int message = 2131230911;
+			// aapt resource value: 0x7f0800be
+			public const int message = 2131230910;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2642,8 +2639,8 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f08003b
 			public const int never = 2131230779;
 			
-			// aapt resource value: 0x7f0800be
-			public const int new_game_button = 2131230910;
+			// aapt resource value: 0x7f0800bd
+			public const int new_game_button = 2131230909;
 			
 			// aapt resource value: 0x7f080022
 			public const int none = 2131230754;
@@ -2660,11 +2657,11 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f0800a9
 			public const int notification_main_column_container = 2131230889;
 			
-			// aapt resource value: 0x7f0800b7
-			public const int one_score = 2131230903;
+			// aapt resource value: 0x7f0800b6
+			public const int one_score = 2131230902;
 			
-			// aapt resource value: 0x7f0800b5
-			public const int one_score_label = 2131230901;
+			// aapt resource value: 0x7f0800b4
+			public const int one_score_label = 2131230900;
 			
 			// aapt resource value: 0x7f08004c
 			public const int parallax = 2131230796;
@@ -2690,11 +2687,11 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f08009d
 			public const int player_two_label = 2131230877;
 			
-			// aapt resource value: 0x7f0800bb
-			public const int points = 2131230907;
-			
 			// aapt resource value: 0x7f0800ba
-			public const int points_label = 2131230906;
+			public const int points = 2131230906;
+			
+			// aapt resource value: 0x7f0800b9
+			public const int points_label = 2131230905;
 			
 			// aapt resource value: 0x7f080006
 			public const int progress_circular = 2131230726;
@@ -2714,8 +2711,8 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f0800ab
 			public const int right_side = 2131230891;
 			
-			// aapt resource value: 0x7f0800bc
-			public const int roll_button = 2131230908;
+			// aapt resource value: 0x7f0800bb
+			public const int roll_button = 2131230907;
 			
 			// aapt resource value: 0x7f08000c
 			public const int save_image_matrix = 2131230732;
@@ -2823,7 +2820,7 @@ namespace PigGame.LittlePig
 			public const int start = 2131230795;
 			
 			// aapt resource value: 0x7f0800a0
-			public const int startButton = 2131230880;
+			public const int start_button = 2131230880;
 			
 			// aapt resource value: 0x7f08009b
 			public const int start_textview = 2131230875;
@@ -2900,14 +2897,14 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f080013
 			public const int transition_transform = 2131230739;
 			
-			// aapt resource value: 0x7f0800b9
-			public const int turn_label = 2131230905;
-			
 			// aapt resource value: 0x7f0800b8
-			public const int two_score = 2131230904;
+			public const int turn_label = 2131230904;
 			
-			// aapt resource value: 0x7f0800b6
-			public const int two_score_label = 2131230902;
+			// aapt resource value: 0x7f0800b7
+			public const int two_score = 2131230903;
+			
+			// aapt resource value: 0x7f0800b5
+			public const int two_score_label = 2131230901;
 			
 			// aapt resource value: 0x7f08002d
 			public const int uniform = 2131230765;
@@ -2921,8 +2918,8 @@ namespace PigGame.LittlePig
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800c0
-			public const int visible = 2131230912;
+			// aapt resource value: 0x7f0800bf
+			public const int visible = 2131230911;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;

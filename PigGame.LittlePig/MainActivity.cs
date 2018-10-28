@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Widget;
 using System.Xml.Serialization;
 using System.IO;
+using Android.Content;
 
 namespace PigGame.LittlePig
 {
@@ -26,7 +27,7 @@ namespace PigGame.LittlePig
             // see if a dual-pane layout is loaded
             bool isDualPane = (FindViewById(Resource.Id.secondFragment) != null);
 
-    
+
             game = new PigLogic();
 
             player1 = FindViewById<EditText>(Resource.Id.player_one);
@@ -45,7 +46,13 @@ namespace PigGame.LittlePig
                 game.Player2Name = p2Name;
             };
 
+            var startButton = FindViewById<Button>(Resource.Id.start_button);
+            startButton.Click += delegate
+            {
+                var second = new Intent(this, typeof(SecondActivity));
+                StartActivity(second);
 
+            };
         }
     }
 }

@@ -99,17 +99,17 @@ namespace PigGame.LittlePig
             points.Text = turnPoints.ToString();
 
             //set the players' names whenever the EditTexts are changed
-            player1.TextChanged += (sender, e) =>
-            {
-                p1Name = player1.Text;
-                game.Player1Name = p1Name;
-            };
+            //player1.TextChanged += (sender, e) =>
+            //{
+            //    p1Name = player1.Text;
+            //    game.Player1Name = p1Name;
+            //};
 
-            player2.TextChanged += (sender, e) =>
-            {
-                p2Name = player2.Text;
-                game.Player2Name = p2Name;
-            };
+            //player2.TextChanged += (sender, e) =>
+            //{
+            //    p2Name = player2.Text;
+            //    game.Player2Name = p2Name;
+            //};
 
 
             rollButton.Click += delegate
