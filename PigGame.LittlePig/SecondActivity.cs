@@ -82,6 +82,10 @@ namespace PigGame.LittlePig
                 turnPoints = game.TurnPoints;
                 die = FindViewById<ImageView>(Resource.Id.image);
                 whoseTurn = FindViewById<TextView>(Resource.Id.turn_label);
+                p1Name = Intent.GetStringExtra("OneName");
+                p2Name = Intent.GetStringExtra("TwoName");
+                game.Player1Name = p1Name;
+                game.Player2Name = p2Name;
             }
 
             player1 = FindViewById<EditText>(Resource.Id.player_one);

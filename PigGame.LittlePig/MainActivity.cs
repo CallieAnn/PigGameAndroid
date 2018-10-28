@@ -50,6 +50,8 @@ namespace PigGame.LittlePig
             startButton.Click += delegate
             {
                 var second = new Intent(this, typeof(SecondActivity));
+                second.PutExtra("OneName", p1Name);
+                second.PutExtra("TwoName", p2Name);
                 StartActivity(second);
 
             };
