@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <FrameLayout
-        android:id="@+id/MainFragment"
+        android:id="@+id/mainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 	<FrameLayout
-        android:id="@+id/SecondFragment"
+        android:id="@+id/secondFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

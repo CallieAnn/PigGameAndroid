@@ -24,10 +24,10 @@ namespace PigGame.LittlePig
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.MainFragment, container, false);
-            var mainActivity = (MainActivity)Activity;
+            // Use this to return your custom view for this Fragment
+            return inflater.Inflate(Resource.Layout.MainFragment, container, false);
 
-            return view;
+     
         }
     }
 }
