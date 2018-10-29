@@ -6,6 +6,8 @@ using Android.Widget;
 using System.Xml.Serialization;
 using System.IO;
 using Android.Content;
+using Android.Content.Res;
+using Android.Content.PM;
 
 namespace PigGame.LittlePig
 {
@@ -21,7 +23,20 @@ namespace PigGame.LittlePig
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            //lock to portrait small screen, landscape large screen
+            if ((Application.ApplicationContext.Resources.Configuration.ScreenLayout & ScreenLayout.SizeMask) == ScreenLayout.SizeLarge)
+            {
+                RequestedOrientation = ScreenOrientation.Landscape;
+            }
+
+            else
+            {
+                RequestedOrientation = ScreenOrientation.Portrait;
+            }
+
             // Set our view from the "main" layout resource
+
             SetContentView(Resource.Layout.MainActivity);
 
             // see if a dual-pane layout is loaded

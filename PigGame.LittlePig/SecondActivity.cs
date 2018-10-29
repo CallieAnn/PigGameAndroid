@@ -5,6 +5,8 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
+using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -47,6 +49,18 @@ namespace PigGame.LittlePig
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            //lock to portrait small screen, landscape large screen
+            if ((Application.ApplicationContext.Resources.Configuration.ScreenLayout & ScreenLayout.SizeMask) == ScreenLayout.SizeLarge)
+            {
+                RequestedOrientation = ScreenOrientation.Landscape;
+            }
+
+            else
+            {
+                RequestedOrientation = ScreenOrientation.Portrait;
+            }
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.SecondActivity);
 
