@@ -178,11 +178,13 @@ namespace PigGame.LittlePig
             var newGameButton = FindViewById<Button>(Resource.Id.new_game_button);
             newGameButton.Click += delegate
             {
-                game.ResetGame();
-                UpdateScore();
-                UpdateTurn();
-                rollButton.Enabled = true;
-                endButton.Enabled = true;
+                var main = new Intent(this, typeof(MainActivity));
+                StartActivity(main);
+                //game.ResetGame();
+                //UpdateScore();
+                //UpdateTurn();
+                //rollButton.Enabled = true;
+                //endButton.Enabled = true;
 
             };
         }
