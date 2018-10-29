@@ -23,8 +23,12 @@ namespace PigGame.LittlePig
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            // Set our view from the "main" layout resource
 
-            //lock to portrait small screen, landscape large screen
+            SetContentView(Resource.Layout.MainActivity);
+            
+            //lock to portrait small screen, landscape large screen // see if a dual-pane layout is loaded
+            bool isDualPane = (FindViewById(Resource.Id.secondFragment) != null);
             if ((Application.ApplicationContext.Resources.Configuration.ScreenLayout & ScreenLayout.SizeMask) == ScreenLayout.SizeLarge)
             {
                 RequestedOrientation = ScreenOrientation.Landscape;
@@ -35,12 +39,8 @@ namespace PigGame.LittlePig
                 RequestedOrientation = ScreenOrientation.Portrait;
             }
 
-            // Set our view from the "main" layout resource
 
-            SetContentView(Resource.Layout.MainActivity);
-
-            // see if a dual-pane layout is loaded
-            bool isDualPane = (FindViewById(Resource.Id.secondFragment) != null);
+           
 
 
             game = new PigLogic();
