@@ -137,7 +137,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout-large\MainActivity.axml">
+    <AndroidResource Include="Resources\layout-large-land\MainActivity.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

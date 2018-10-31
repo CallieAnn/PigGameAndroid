@@ -27,9 +27,15 @@ namespace PigGame.LittlePig
 
             SetContentView(Resource.Layout.MainActivity);
             
+          
             //lock to portrait small screen, landscape large screen // see if a dual-pane layout is loaded
-            bool isDualPane = (FindViewById(Resource.Id.secondFragment) != null);
-            if ((Application.ApplicationContext.Resources.Configuration.ScreenLayout & ScreenLayout.SizeMask) == ScreenLayout.SizeLarge)
+            bool isDualPane = false;
+            var img = FindViewById<ImageView>(Resource.Id.image);
+            if(img != null)
+            {
+                isDualPane = true;
+            }
+            if (isDualPane)
             {
                 RequestedOrientation = ScreenOrientation.Landscape;
             }
@@ -70,6 +76,7 @@ namespace PigGame.LittlePig
                 StartActivity(second);
 
             };
+            
         }
     }
 }
