@@ -51,25 +51,9 @@ namespace PigGame.LittlePig
             base.OnCreate(savedInstanceState);
             
             
-
-            //lock to portrait small screen, landscape large screen
-            bool isDualPane = Intent.GetBooleanExtra("IsDualPane", false);
-
-            if (isDualPane)
-            {
-                // Set our view from the "main" layout resource
-                SetContentView(Resource.Layout.MainActivity);
-                RequestedOrientation = ScreenOrientation.Landscape;
-            }
-
-            else
-            {
-                // Set our view from the "main" layout resource
-                SetContentView(Resource.Layout.SecondActivity);
-                RequestedOrientation = ScreenOrientation.Portrait;
-            }
-
-            
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.SecondActivity);
+            RequestedOrientation = ScreenOrientation.Portrait;
 
             if (savedInstanceState != null)
             {
