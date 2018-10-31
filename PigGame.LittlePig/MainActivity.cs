@@ -47,12 +47,12 @@ namespace PigGame.LittlePig
             // Set our view from the "main" layout resource
 
             SetContentView(Resource.Layout.MainActivity);
-            
-          
+
+
             //lock to portrait small screen, landscape large screen // see if a dual-pane layout is loaded
             bool isDualPane = false;
             var img = FindViewById<ImageView>(Resource.Id.image);
-            if(img != null)
+            if (img != null)
             {
                 isDualPane = true;
             }
@@ -65,28 +65,41 @@ namespace PigGame.LittlePig
             {
                 RequestedOrientation = ScreenOrientation.Portrait;
             }
-
             game = new PigLogic();
             player1 = FindViewById<EditText>(Resource.Id.player_one);
             player2 = FindViewById<EditText>(Resource.Id.player_two);
+            var rollButton = FindViewById<Button>(Resource.Id.roll_button);
+            var endButton = FindViewById<Button>(Resource.Id.end_button);
+            var newGameButton = FindViewById<Button>(Resource.Id.new_game_button);
 
-            //set the players' names whenever the EditTexts are changed
-            player1.TextChanged += (sender, e) =>
+            if(isDualPane == false)
             {
-                p1Name = player1.Text;
-                game.Player1Name = p1Name;
-            };
 
-            player2.TextChanged += (sender, e) =>
+                //set the players' names whenever the EditTexts are changed
+                player1.TextChanged += (sender, e) =>
+                {
+                    p1Name = player1.Text;
+                    game.Player1Name = p1Name;
+                };
+
+                player2.TextChanged += (sender, e) =>
+                {
+                    p2Name = player2.Text;
+                    game.Player2Name = p2Name;
+                };
+            }
+            else
             {
-                p2Name = player2.Text;
-                game.Player2Name = p2Name;
-            };
+                rollButton.Enabled = false;
+                endButton.Enabled = false;
+                newGameButton.Enabled = false;
+            }
+            
 
             var startButton = FindViewById<Button>(Resource.Id.start_button);
             startButton.Click += delegate
             {
-                if(isDualPane == false)
+                if (isDualPane == false)
                 {
                     var second = new Intent(this, typeof(SecondActivity));
                     second.PutExtra("OneName", p1Name);
@@ -96,10 +109,18 @@ namespace PigGame.LittlePig
 
                 else
                 {
+                   
+                    p1Name = player1.Text;
+                    game.Player1Name = p1Name;
+                    p2Name = player2.Text;
+                    game.Player2Name = p2Name;
                     startButton.Enabled = false;
                     whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
+                    rollButton.Enabled = true;
+                    endButton.Enabled = true;
+                    newGameButton.Enabled = true;
                 }
-               
+
 
             };
 
@@ -129,67 +150,80 @@ namespace PigGame.LittlePig
 
             else
             {
-               
+
                 p1Score = game.Player1Score;
                 p2Score = game.Player2Score;
                 turnPoints = game.TurnPoints;
                 die = FindViewById<ImageView>(Resource.Id.image);
                 whoseTurn = FindViewById<TextView>(Resource.Id.turn_label);
                 turn = game.Turn;
-                whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
+
             }
 
             pOneScore = FindViewById<TextView>(Resource.Id.one_score);
             pTwoScore = FindViewById<TextView>(Resource.Id.two_score);
             points = FindViewById<TextView>(Resource.Id.points);
 
-            var rollButton = FindViewById<Button>(Resource.Id.roll_button);
-            var endButton = FindViewById<Button>(Resource.Id.end_button);
+            
 
-
-            pOneScore.Text = p1Score.ToString();
-            pTwoScore.Text = p2Score.ToString();
-            points.Text = turnPoints.ToString();
-
-            rollButton.Click += delegate
+            if (isDualPane)
             {
-                turn = game.Turn;
-                whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
-
-                roll = game.RollDie();
-
-                //set correct die image
-                dieName = "die" + roll;
-                int resID = Resources.GetIdentifier(dieName, "drawable", PackageName);
-                die.SetImageResource(resID);
-
-                //update points
-                turnPoints = game.TurnPoints;
+                pOneScore.Text = p1Score.ToString();
+                pTwoScore.Text = p2Score.ToString();
                 points.Text = turnPoints.ToString();
 
-                //if roll a 1
-                bool rollOne = game.CheckForOne();
-                if (rollOne)
-                {
-                    rollButton.Enabled = false;
-                }
-            };
 
 
-            endButton.Click += (sender, e) =>
-            {
-                //check winner
-                turn = game.ChangeTurn();
-                if (turn == 1)
+
+                rollButton.Click += delegate
                 {
-                    winner = game.CheckForWinner();
-                    if (winner != "")
+                    turn = game.Turn;
+                    whoseTurn.Text = game.GetCurrentPlayer() + "'s turn";
+
+                    roll = game.RollDie();
+
+                    //set correct die image
+                    dieName = "die" + roll;
+                    int resID = Resources.GetIdentifier(dieName, "drawable", PackageName);
+                    die.SetImageResource(resID);
+
+                    //update points
+                    turnPoints = game.TurnPoints;
+                    points.Text = turnPoints.ToString();
+
+                    //if roll a 1
+                    bool rollOne = game.CheckForOne();
+                        if (rollOne)
+                        {
+                            rollButton.Enabled = false;
+                        }
+                };
+
+
+                endButton.Click += (sender, e) =>
+                {
+                    //check winner
+                    turn = game.ChangeTurn();
+                    if (turn == 1)
                     {
-                        rollButton.Enabled = false;
-                        endButton.Enabled = false;
-                        UpdateScore();
-                        whoseTurn.Text = winner + " wins!";
+                        winner = game.CheckForWinner();
+                        if (winner != "")
+                        {
+                            rollButton.Enabled = false;
+                            endButton.Enabled = false;
+                            UpdateScore();
+                            whoseTurn.Text = winner + " wins!";
+                        }
+                        else
+                        {
+                            UpdateScore();
+                            UpdateTurn();
+                            rollButton.Enabled = true;
+                            endButton.Enabled = true;
+                        }
                     }
+
+
                     else
                     {
                         UpdateScore();
@@ -197,32 +231,23 @@ namespace PigGame.LittlePig
                         rollButton.Enabled = true;
                         endButton.Enabled = true;
                     }
-                }
 
+                };
 
-                else
+                
+                newGameButton.Click += delegate
                 {
+                    game.ResetGame();
                     UpdateScore();
                     UpdateTurn();
-                    rollButton.Enabled = true;
-                    endButton.Enabled = true;
-                }
+                    rollButton.Enabled = false;
+                    endButton.Enabled = false;
+                    newGameButton.Enabled = false;
+                    startButton.Enabled = true;
 
-            };
-
-            var newGameButton = FindViewById<Button>(Resource.Id.new_game_button);
-            newGameButton.Click += delegate
-            {
-                game.ResetGame();
-                UpdateScore();
-                UpdateTurn();
-                rollButton.Enabled = true;
-                endButton.Enabled = true;
-                startButton.Enabled = true;
-
-            };
+                };
+            }
         }
-
         public void UpdateScore()
         {
             p1Score = game.Player1Score;

@@ -185,11 +185,6 @@ namespace PigGame.LittlePig
             {
                 var main = new Intent(this, typeof(MainActivity));
                 StartActivity(main);
-                //game.ResetGame();
-                //UpdateScore();
-                //UpdateTurn();
-                //rollButton.Enabled = true;
-                //endButton.Enabled = true;
 
             };
         }
