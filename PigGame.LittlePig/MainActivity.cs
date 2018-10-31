@@ -70,9 +70,14 @@ namespace PigGame.LittlePig
             var startButton = FindViewById<Button>(Resource.Id.start_button);
             startButton.Click += delegate
             {
+                if(isDualPane == false)
+                {
+                    
+                }
                 var second = new Intent(this, typeof(SecondActivity));
                 second.PutExtra("OneName", p1Name);
                 second.PutExtra("TwoName", p2Name);
+                second.PutExtra("IsDualPane", isDualPane);
                 StartActivity(second);
 
             };
