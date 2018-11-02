@@ -49,8 +49,8 @@ namespace PigGame.LittlePig
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
-            
+
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.SecondActivity);
             RequestedOrientation = ScreenOrientation.Portrait;

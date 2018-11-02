@@ -72,7 +72,7 @@ namespace PigGame.LittlePig
             var endButton = FindViewById<Button>(Resource.Id.end_button);
             var newGameButton = FindViewById<Button>(Resource.Id.new_game_button);
 
-            if(isDualPane == false)
+            if (isDualPane == false)
             {
 
                 //set the players' names whenever the EditTexts are changed
@@ -94,7 +94,7 @@ namespace PigGame.LittlePig
                 endButton.Enabled = false;
                 newGameButton.Enabled = false;
             }
-            
+
 
             var startButton = FindViewById<Button>(Resource.Id.start_button);
             startButton.Click += delegate
@@ -109,7 +109,7 @@ namespace PigGame.LittlePig
 
                 else
                 {
-                   
+
                     p1Name = player1.Text;
                     game.Player1Name = p1Name;
                     p2Name = player2.Text;
@@ -164,7 +164,7 @@ namespace PigGame.LittlePig
             pTwoScore = FindViewById<TextView>(Resource.Id.two_score);
             points = FindViewById<TextView>(Resource.Id.points);
 
-            
+
 
             if (isDualPane)
             {
@@ -193,10 +193,10 @@ namespace PigGame.LittlePig
 
                     //if roll a 1
                     bool rollOne = game.CheckForOne();
-                        if (rollOne)
-                        {
-                            rollButton.Enabled = false;
-                        }
+                    if (rollOne)
+                    {
+                        rollButton.Enabled = false;
+                    }
                 };
 
 
@@ -234,7 +234,7 @@ namespace PigGame.LittlePig
 
                 };
 
-                
+
                 newGameButton.Click += delegate
                 {
                     game.ResetGame();
